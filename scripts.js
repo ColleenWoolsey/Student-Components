@@ -1,118 +1,129 @@
 const students = [
     {
         name: "Chris Miller",
-        class: "History",
+        course: "History",
         info: "Failed last exam",
         score: 59
     },
     {
         name: "Courtney Seward",
-        class: "History",
+        course: "History",
         info: "Has completed all homework",
         score: 91
     },
     {
         name: "Garrett Ward",
-        class: "History",
+        course: "History",
         info: "Wonderful at helping other students",
         score: 88
     },
     {
         name: "John Dulaney",
-        class: "History",
+        course: "History",
         info: "Has never missed a class or exam",
         score: 92
     },
     {
         name: "Greg Lawrence",
-        class: "History",
+        course: "History",
         info: "Sub-par performance all around",
         score: 64
     },
     {
         name: "Leah Duvic",
-        class: "History",
+        course: "History",
         info: "Wonderful student",
         score: 97
     },
     {
         name: "Jesse Page",
-        class: "History",
+        course: "History",
         info: "Smokes too much. Distracting.",
         score: 76
     },
     {
         name: "Kevin Haggerty",
-        class: "History",
+        course: "History",
         info: "Falls asleep in class",
         score: 79
     },
     {
         name: "Max Wolf",
-        class: "History",
+        course: "History",
         info: "Talks too much",
         score: 83
     },
     {
         name: "Lissa Goforth",
-        class: "History",
+        course: "History",
         info: "Asks pointless, unrelated questions",
         score: 78
     },
     {
         name: "Tyler Bowman",
-        class: "History",
+        course: "History",
         info: "When was the last time he attended class?",
         score: 48
     },
     {
         name: "Ray Medrano",
-        class: "History",
+        course: "History",
         info: "Needs to contribute to in-class discussions",
         score: 95
     }
 ]
+
+
 
 const h1 = (title, style) => {
     return `<h1 class="${style}">${title}</h1>`
 }
 
 const section = (title, style) => {
-    return `<section class="bordered dashed ${style}">${title}</section>`
+    return `<section class="${style}">${title}</section>`
 }
 
 const aside = (title, style) => {
     return `<aside class="${style}">${title}</aside>`
 }
 
-const student = function(name, class, info) {
-    return `<div id="student">
-        ${h1(name, "xx-large")}
-        ${section(class "section--padded")}
+const studentp = function(name, course, info) {
+       return `<div id="student">
+        ${h1(name, "xx-large passing")}
+        ${section(course, "bordered dashed section--padded")}
         ${aside(info, "pushRight")}
     </div>`
-}
+    
+  }
+const studentf = function(name, course, info) {
+   return `<div id="student">
+        ${h1(name, "xx-large failing")}
+        ${section(course, "section--padded")}
+        ${aside(info, "pushRight")}
+    </div>`
+   }
 
-for (student of students) {
-    let studentComponent = ""
+ let container = document.querySelector("#container");
+
+students.forEach(function(student) {
+    let studentComponent = "";
     if (student.score >= 60) {
-        studentComponent = ...
+      studentComponent = studentp(student.name, student.course, student.info);
+      container.innerHTML = studentComponent;
+
+      const newdiv = document.createElement('div');
+      newdiv.innerHTML = studentComponent;
+      document.querySelector('body').appendChild(newdiv);
+      
+      console.log(studentComponent)
     } else {
-        studentComponent = ...
+        studentComponent = studentf(student.name, student.course, student.info);
+        container.innerHTML = studentComponent;
+
+        const newdiv = document.createElement('div');
+        newdiv.innerHTML = studentComponent;
+        document.querySelector('body').appendChild(newdiv);
+
+        console.log(studentComponent)
     }
-}
- 
-
-// containerRef.innerHTML += student(students[i].name,
-//     students[i].class, students[i].info);
-
-{
-    // If a student is passing, then the structure should look like the following
-    // adding class .passing (green) to header or .failing (orange)
-    // Classes 1.section--padded class and 2.bordered and 3.dashed in section
-
- /* <div class="student">
-    <h1 class="xx-large green">Student Name</h1>
-    <section class="bordered dashed section--padded">Student class</section>
-    <aside class="pushRight">Additional information</aside>
-</div> */}
+});
