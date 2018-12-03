@@ -107,16 +107,16 @@ const container = document.querySelector("#container");
 
 students.forEach(function(student) {
     let studentComponent = "";
-    let newarticle = "";
+    
     if (student.score >= 60) {
       studentComponent = studentp(student.name, student.course, student.info);
-      newarticle = document.createElement('article');
+      let newarticle = document.createElement('article');
       newarticle.innerHTML = studentComponent;
       document.querySelector('div').appendChild(newarticle);
       
     } else {
         studentComponent = studentf(student.name, student.course, student.info);
-        newarticle = document.createElement('article');
+        let newarticle = document.createElement('article');
         newarticle.innerHTML = studentComponent;
         document.querySelector('div').appendChild(newarticle);
 
