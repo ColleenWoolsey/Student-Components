@@ -88,42 +88,38 @@ const aside = (title, style) => {
 }
 
 const studentp = function(name, course, info) {
-       return `<div id="student">
+       return `<article id="student">
         ${h1(name, "xx-large passing")}
         ${section(course, "bordered dashed section--padded")}
         ${aside(info, "pushRight")}
-    </div>`
-    
+    </article>` 
   }
+
 const studentf = function(name, course, info) {
-   return `<div id="student">
+   return `<article id="student">
         ${h1(name, "xx-large failing")}
         ${section(course, "section--padded")}
         ${aside(info, "pushRight")}
-    </div>`
+    </article>`
    }
 
- let container = document.querySelector("#container");
+const container = document.querySelector("#container");
 
 students.forEach(function(student) {
     let studentComponent = "";
+    let newarticle = "";
     if (student.score >= 60) {
       studentComponent = studentp(student.name, student.course, student.info);
-      container.innerHTML = studentComponent;
-
-      const newdiv = document.createElement('div');
-      newdiv.innerHTML = studentComponent;
-      document.querySelector('body').appendChild(newdiv);
+      newarticle = document.createElement('article');
+      newarticle.innerHTML = studentComponent;
+      document.querySelector('div').appendChild(newarticle);
       
-      console.log(studentComponent)
     } else {
         studentComponent = studentf(student.name, student.course, student.info);
-        container.innerHTML = studentComponent;
+        newarticle = document.createElement('article');
+        newarticle.innerHTML = studentComponent;
+        document.querySelector('div').appendChild(newarticle);
 
-        const newdiv = document.createElement('div');
-        newdiv.innerHTML = studentComponent;
-        document.querySelector('body').appendChild(newdiv);
-
-        console.log(studentComponent)
     }
+    console.log(studentComponent)
 });
