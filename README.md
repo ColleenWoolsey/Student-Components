@@ -1,12 +1,16 @@
 # Student-Components
 
 PRACTICE EXERCISE
-1. Created 3 different functions to add <h1>, <section>, and <aside> elements with a given css class inside an <article> container to display student name, course and comment info.
+1. Created 3 different functions to add h1, section, and aside elements with a given css class inside an article container to display student name, course and comment info.
 EMPLOYED ${} SUBSTITUTION
 2. Used these three functions to create a student component function
 EMPLOYED document.QuerySelector to select container
 3. Iterated through data objects separating students by grade
 EMPLOYED A for (  of  ) with a nested if else loop
+
+
+CHALLENGE: Use Rest Operator
+1. Pass multiple arguments into component building function without having to define each one in the argument list
 
 
 CHALLENGE: Generic HTML Function
