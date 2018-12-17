@@ -74,26 +74,51 @@ const students = [
 ]
 
 
+// const h1 = (title, style) => {
+//     return `<h1 class="${style}">${title}</h1>`
+// }
 
-const h1 = (title, style) => {
-    return `<h1 class="${style}">${title}</h1>`
+// CHALLENGE: Use Rest Operator
+// 1. Pass multiple arguments into component building function
+// without having to define each one in the argument list
+
+const h1 = (...props) => {
+    return `<h1 class="${props[1]}">${props[0]}</h1>`
+    }
+
+// const section = (title, style) => {
+//     return `<section class="${style}">${title}</section>`
+// }
+const section = (...props) => {
+    return `<section class="bordered dashed ${props[1]}">${props[0]}</section>`
 }
 
-const section = (title, style) => {
-    return `<section class="${style}">${title}</section>`
+// const aside = (title, style) => {
+//     return `<aside class="${style}">${title}</aside>`
+// }
+const aside = (...props) => {
+    return `<aside class="${props[1]}">${props[0]}</aside>`
 }
 
-const aside = (title, style) => {
-    return `<aside class="${style}">${title}</aside>`
-}
+// const studentp = function(name, course, info) {
+//        return `<article id="student">
+//         ${h1(name, "xx-large passing")}
+//         ${section(course, "bordered dashed section--padded")}
+//         ${aside(info, "pushRight")}
+//     </article>` 
+//   }
 
-const studentp = function(name, course, info) {
-       return `<article id="student">
-        ${h1(name, "xx-large passing")}
-        ${section(course, "bordered dashed section--padded")}
-        ${aside(info, "pushRight")}
-    </article>` 
-  }
+// CHALLENGE: Generic HTML Function
+// 1. Created a more generic function that takes the element
+// argument as well as the style and content arguments.
+
+const studentp = (...props) => {
+    return `<article id="student">
+     ${h1(props[0], "xx-large passing")}
+     ${section(props[1], "bordered dashed section--padded")}
+     ${aside(props[2], "pushRight")}
+ </article>` 
+};
 
 const studentf = function(name, course, info) {
    return `<article id="student">
@@ -123,3 +148,17 @@ students.forEach(function(student) {
     }
     console.log(studentComponent)
 });
+
+// Here the first two arguments go into variables and the
+// rest go into titles array:
+
+// function showName(firstName, lastName, ...titles) {
+//     alert( firstName + ' ' + lastName ); // Julius Caesar
+
+//     // the rest go into titles array
+//     // i.e. titles = ["Consul", "Imperator"]
+//     alert( titles[0] ); // Consul
+//     alert( titles[1] ); // Imperator
+//     alert( titles.length ); // 2
+// }
+// showName("Julius", "Caesar", "Consul", "Imperator");
