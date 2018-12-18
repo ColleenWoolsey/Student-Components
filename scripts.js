@@ -162,3 +162,57 @@ students.forEach(function(student) {
 //     alert( titles.length ); // 2
 // }
 // showName("Julius", "Caesar", "Consul", "Imperator");
+
+
+// Advanced Challenge: Using createElement for Components
+const messageArticle = document.querySelector("#messages");
+
+let messageSection = document.createElement("section");
+messageSection.textContent = "Are we doing fireworks this year?";
+messageArticle.appendChild(messageSection);
+console.log(messageSection)
+
+messageSection = document.createElement("section");
+messageSection.textContent = `After last year's "tree incident", should we?`;
+messageArticle.appendChild(messageSection);
+console.log(messageSection)
+
+messageSection = document.createElement("section");
+messageSection.textContent = "The fire fighters put it out in like a minute. Wasn't even a real fire.";
+messageArticle.appendChild(messageSection);
+console.log(messageSection)
+
+messageSection = document.createElement("section");
+messageSection.textContent = "We can set them off in the street.";
+messageArticle.appendChild(messageSection);
+console.log(messageSection)
+
+messageSection = document.createElement("section");
+messageSection.textContent = "Our neighbors' houses are flammable, too";
+messageArticle.appendChild(messageSection);
+console.log(messageSection)
+
+// Advanced Challenge: DOM Fragments
+const fragment = document.createDocumentFragment();
+
+const message1 = document.createElement("section");
+message1.textContent = "Are we doing fireworks this year?";
+fragment.appendChild(message1);
+
+const message2 = document.createElement("section");
+message2.textContent = `After last year's "tree incident", should we?`;
+fragment.appendChild(message2);
+
+const message3 = document.createElement("section");
+message3.textContent = "The fire fighters put it out in like a minute. Wasn't even a real fire.";
+fragment.appendChild(message3);
+
+const message4 = document.createElement("section");
+message4.textContent = "We can set them off in the street.";
+fragment.appendChild(message4);
+
+const message5 = document.createElement("section");
+message5.textContent = "Our neighbors' houses are flammable, too";
+fragment.appendChild(message5);
+
+document.querySelector("#messages").appendChild(fragment);
